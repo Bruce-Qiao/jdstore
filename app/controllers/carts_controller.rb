@@ -2,6 +2,8 @@ class CartsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    # @cart_item = current_cart.cart_items.find(params[:id])
+    # @user = User.find(@cart_item.product.user_id)
   end
 
   def clean
