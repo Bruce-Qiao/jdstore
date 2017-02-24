@@ -1,0 +1,29 @@
+<h2>订单列表</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>生成时间</th>
+      <th>订购者</th>
+      <th>订单状态</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <% repeate = false %>
+      <% order.product_lists.each do |product_list| %>
+
+        <% if product_list.user_id == current_user.id && repeate == false %>
+        <% repeate = true %>
+              <tr>
+                <td><%= link_to(order.id, account_orderin_path(order)) %></td>
+                <td><%= order.created_at.to_s(:long) %></td>
+                <td><%= order.user.email %></td>
+                <td><%= order.aasm_state %></td>
+              </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
