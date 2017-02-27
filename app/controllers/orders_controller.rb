@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  layout "buy"
+
   before_action :authenticate_user!, only: [:create]
 
   def index
