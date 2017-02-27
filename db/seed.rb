@@ -17,7 +17,7 @@ u.is_admin = true
 u.save
 
 u = User.new
-u.email = "test@123.com"           # 可以改成自己的 email
+u.email = "bruceq619@gmail.com"           # 可以改成自己的 email
 
 u.password = "123456"                # 最少要六码
 

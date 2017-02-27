@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'products#index'
+  resources :welcome do
+
+  end
+
+  root 'welcome#index'
 
   devise_for :users
 
