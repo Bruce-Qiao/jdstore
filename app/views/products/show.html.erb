@@ -15,7 +15,8 @@
     </div>
     <div> 数量 : <%= @product.quantity %> </div>
     <div style="text-decoration:line-through;"> 淘宝（京东）价 ：<%= @product.taoprice %></div>
-    <div class="product-price"> 售价￥ <%= @product.price %> </div>
+    <div class="product-price"> 售价：￥ <%= @product.price %> </div>
+    <div> 卖家：<%= @product.user.email %></div>
 
     <div class="pull-right">
       <% if @product.quantity.present? && @product.quantity > 0 %>
