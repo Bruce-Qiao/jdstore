@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 u = User.new
-u.email = "admin@jdstore.com"           # 可以改成自己的 email
+u.email = "admin@HALFprice.com"           # 可以改成自己的 email
 
 u.password = "123456"                # 最少要六码
 
