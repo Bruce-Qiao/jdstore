@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-    @orders=current_user.orders.all("id DESC")
+    @orders=current_user.orders.order("id DESC")
   end
 
   def create

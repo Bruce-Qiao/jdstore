@@ -3,17 +3,20 @@ class OrderMailer < ApplicationMailer
   def notify_order_placed(order)
     @order       = order
     @user        = order.user
+    @supplier    = User.find(@order.product_lists.first.user_id)
     @product_lists = @order.product_lists
 
+    mail(to: @supplier.email , subject: "[JDstore] 您有了新的订单，以下是订单明细 #{order.token}")
     mail(to: @user.email , subject: "[JDstore] 感谢您完成本次的下单，以下是您这次购物明细 #{order.token}")
   end
 
   def apply_cancel(order)
     @order       = order
     @user        = order.user
+    @supplier    = User.find(@order.product_lists.first.user_id)
     @product_lists = @order.product_lists
 
-    mail(to: "admin@jdstore.com" , subject: "[JDStore] 用户#{order.user.email}申请取消订单 #{order.token}")
+    mail(to: @supplier.email , subject: "[JDStore] 用户#{order.user.email}申请取消订单 #{order.token}")
   end
 
   def notify_ship(order)
