@@ -16,11 +16,16 @@ class Account::ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user = current_user
 
-    if @product.save
-      redirect_to account_products_path
-    else
-      render :new
-    end
+    # price_limit = (@product.taoprice*0.5)
+    # if @product.price <= price_limit
+      if @product.save
+        redirect_to account_products_path
+      else
+        render :new
+      end
+    # else
+    #   render :new, warning: '售价不能超过淘宝价的一半！'
+    # end
   end
 
   def edit
@@ -30,11 +35,16 @@ class Account::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
 
-    if @product.update(product_params)
-      redirect_to account_products_path
-    else
-      render :edit
-    end
+    # price_limit = (@product.taoprice*0.5)
+    # if @product.price <= price_limit
+      if @product.update(product_params)
+        redirect_to account_products_path
+      else
+        render :edit
+      end
+    # else
+    #   render :new, warning: '售价不能超过淘宝价的一半！'
+    # end
   end
 
   def destroy
@@ -47,7 +57,7 @@ class Account::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :image)
+    params.require(:product).permit(:title, :description, :quantity, :price, :image, :taoprice)
   end
 
 end
