@@ -1,6 +1,6 @@
 class Account::ProductsController < ApplicationController
 
-  layout "backend"
+  layout "sell"
 
   before_action :authenticate_user!
 

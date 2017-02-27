@@ -1,5 +1,5 @@
 class Account::OrderinsController < ApplicationController
-  layout "backend"
+  layout "sell"
 
   before_action :authenticate_user!
 
