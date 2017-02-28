@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :products do
     member do
       post :add_to_cart
+      put  :favorite
     end
   end
 
@@ -54,6 +55,10 @@ Rails.application.routes.draw do
         post :return
       end
     end
+  end
+
+  resources :favorite do
+    
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

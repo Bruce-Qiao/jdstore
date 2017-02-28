@@ -17,6 +17,14 @@
     <div style="text-decoration:line-through;"> 淘宝（京东）价 ：<%= @product.taoprice %></div>
     <div class="product-price"> 售价：￥ <%= @product.price %> </div>
     <div> 卖家：<%= @product.user.email %></div>
+    <br>
+    <div>
+        <% if current_user && current_user.is_favorite_of?(@product) %>
+          <%= link_to(content_tag(:i, '取消收藏', class: 'fa fa-heart fa-lg'), favorite_product_path(@product, type: "unfavorite"), method: :put) %>
+        <% else %>
+          <%= link_to(content_tag(:i, '添加收藏', class: 'fa fa-heart-o fa-lg'), favorite_product_path(@product, type: "favorite"), method: :put) %>
+        <% end %>
+    </div>
 
     <div class="pull-right">
       <% if @product.quantity.present? && @product.quantity > 0 %>
