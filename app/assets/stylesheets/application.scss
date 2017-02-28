@@ -16,6 +16,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+ @import "navbar";
 
  .custab{
    border: 1px solid #ccc;
@@ -63,7 +64,7 @@
     background-color: rgba(250, 250, 250, 0.39);//背景颜色含透明度
     padding: 20px;//上下左右padding为20px
     text-align:left;//文字左对齐
-    color: #000000;//字体颜色
+    color: #ffffff;//字体颜色
     border-bottom-right-radius: 6px;//右下角圆边
     border-bottom-left-radius: 6px;//左下角圆边
 }
@@ -81,11 +82,7 @@
   color: white;
 }
 
-.navbar-default {
-    background-color: #ffffff;//背景颜色
-    border-color: #ffffff;//边框色
-    margin-bottom: 0;//底部 margin 不撑开距离
-}
+
 
 
 @import url(http://fonts.googleapis.com/css?family=Roboto);
