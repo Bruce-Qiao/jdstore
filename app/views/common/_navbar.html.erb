@@ -10,8 +10,20 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                  <li class="active">
-                    <%= link_to("商品列表", products_path) %>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <%= content_tag(:i, '', class: 'fa fa-list fa-lg')  %>
+                      <b class="caret"></b>
+                   </a>
+
+                       <ul class="dropdown-menu">
+                          <li><%= link_to("所有商品", products_path) %></li>
+                          <hr>
+                          <li><%= link_to("电脑及周边", products_path(:sort => "computer")) %></li>
+                          <li><%= link_to("家具及家居", products_path(:sort => "furniture")) %></li>
+                          <li><%= link_to("办公文具", products_path(:sort => "office")) %></li>
+                          <li><%= link_to("其他", products_path(:sort => "other")) %></li>
+                       </ul>
                   </li>
                 </ul>
 

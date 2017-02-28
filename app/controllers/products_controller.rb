@@ -4,7 +4,18 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:add_to_cart, :favorite]
 
   def index
-    @products = Product.all
+    @products = case params[:sort]
+                when 'computer'
+                  Product.where(:sort => "computer").order("created_at DESC")
+                when 'furniture'
+                  Product.where(:sort => "furniture").order("created_at DESC")
+                when 'office'
+                  Product.where(:sort => "office").order("created_at DESC")
+                when 'other'
+                  Product.where(:sort => "other").order("created_at DESC")
+                else
+                  Product.all.order("created_at DESC")
+                end
   end
 
   def show
