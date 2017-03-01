@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   layout "buy"
 
   before_action :authenticate_user!, only: [:add_to_cart, :favorite]
+  before_action :validate_search_key, only: [:search]
 
   def index
     @products = case params[:sort]
@@ -57,12 +58,7 @@ class ProductsController < ApplicationController
 
   def search
     if @query_string.present?
-      search_result =  Product.ransack(@search_criteria).result(:distinct => true)
-      @products = search_result.paginate(:page => params[:page], :per_page => 10)
-      puts @products
-    else
-      @products = Product.paginate(:page => params[:page], :per_page => 10)
-      puts @products
+      @products = search_params
     end
   end
 
@@ -70,13 +66,12 @@ class ProductsController < ApplicationController
 
   def validate_search_key
     @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
-    @search_criteria = search_criteria(@query_string)
   end
 
+  private
 
-  def search_criteria(query_string)
-    { :title_cont => query_string }
+  def search_params
+    Product.ransack({:title_or_description_cont => @query_string}).result(distinct: true)
   end
-
 
 end
