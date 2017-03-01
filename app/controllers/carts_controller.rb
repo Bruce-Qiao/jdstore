@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  layout "buy"
+
   before_action :authenticate_user!
 
   def index

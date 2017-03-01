@@ -27,7 +27,7 @@
 .search {
   float: left; /*logo、seatch、cart这三个模块都是用div包起来的，是block元素，如果要处于同一行，那就要加float*/
   width: 400px;
-  margin-left: 500px; /*右边距*/
+  margin-left: 200px; /*右边距*/
   margin-top: 6px; /*上边距*/
   position: relative; /*相对定位*/
 }
