@@ -7,8 +7,10 @@ class ProductsController < ApplicationController
   def index
     @products = case params[:sort]
                 when 'computer'
+                  sort_name = "电脑及周边商品"
                   Product.where(:sort => "computer").order("created_at DESC")
                 when 'furniture'
+                  sort_name = "家具及家居商品"
                   Product.where(:sort => "furniture").order("created_at DESC")
                 when 'office'
                   Product.where(:sort => "office").order("created_at DESC")
