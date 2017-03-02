@@ -88,10 +88,10 @@
 							</div>
 							<span class="review-no">41 reviews</span>
 						</div>
-						<p class="product-description"><%= @product.description %></p>
+						<p class="product-description"><%= render_product_description(@product) %></p>
             <h4 style="text-decoration:line-through;">淘宝(京东)价: <span>￥ <%= @product.taoprice %></span></h4>
 						<h4 class="price">现价: <span>￥ <%= @product.price %></span></h4>
-						<p class="vote"><strong>50% OFF!</strong> 相对于新品便宜超过一半的价格! </p>
+						<p class="vote"><strong><%= discount_percentage(@product) %>% OFF!</strong> 相对于新品便宜超过一半的价格! </p>
             <h5 class="sizes">数量:  <%= @product.quantity %></h5>
             <h5 class="sizes">卖家:  <span><%= User.find(@product.user_id).email %></span></h5>
 						<h5 class="colors">颜色:
