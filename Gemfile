@@ -44,6 +44,7 @@ gem 'ransack'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'seo_helper'
+gem 'devise-i18n'
 
 
 group :development, :test do
