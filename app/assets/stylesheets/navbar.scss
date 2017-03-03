@@ -1,10 +1,12 @@
 
 .navbar-default {
-    background-color: #ffffff;//背景颜色
+    background-color: #bee6f5;//背景颜色
     border-color: #ffffff;//边框色
     margin-bottom: 0; //底部 margin 不撑开距离
     // height: 30px;
     // line-height: 30px;
+    padding-left: 10px; /*左边加点空间，不然太挤啦*/
+    border-radius: 0;
   }
 
 .navbar-center {
