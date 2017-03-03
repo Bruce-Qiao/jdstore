@@ -1,0 +1,42 @@
+<% @products.each do |product| %>
+<div class="col-sm-3">
+    <article class="col-item">
+    <div class="photo">
+      <div class="options">
+        <button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Add to wish list">
+          <i class="fa fa-heart"></i>
+        </button>
+        <button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compare">
+          <i class="fa fa-exchange"></i>
+        </button>
+      </div>
+      <div class="options-cart">
+        <button class="btn btn-default" title="Add to cart">
+          <span class="fa fa-shopping-cart"></span>
+        </button>
+      </div>
+      <div>
+      <%= link_to product_path(product) do %>
+        <% if product.image.present? %>
+          <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+    <div class="info">
+      <div class="row">
+        <div class="price-details col-md-6">
+          <p class="details">
+            卖家：<%= User.find(product.user_id).email %>
+          </p>
+          <h1><%= product.title %></h1>
+          <span class="price-new">¥ <%= product.price %></span>
+        </div>
+      </div>
+    </div>
+  </article>
+    <!-- <p class="text-center">Hover over image</p> -->
+</div>
+<% end %>

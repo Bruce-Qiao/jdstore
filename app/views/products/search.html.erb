@@ -1,18 +1,7 @@
 <div class="row">
   <% if @products.present? %>
       <h3>为您找到了<%= @products.count %>个宝贝：</h3>
-      <% @products.each do |product| %>
-        <div class="col-xs-6 col-md-3">
-          <%= link_to product_path(product) do %>
-            <% if product.image.present? %>
-              <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-            <% else %>
-              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-            <% end %>
-          <% end %>
-          <%= product.title %>   ￥<%= product.price %>
-        </div>
-      <% end %>
+      <%= render "index_photo" %>
   <% else %>
       <h3>很抱歉没有找到您要的宝贝。</h3>
   <% end %>
