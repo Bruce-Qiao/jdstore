@@ -49,7 +49,7 @@
         			<div class="row">
         				<div class="price-details col-md-6">
         					<p class="details">
-        						<%= product.description %>
+        						卖家：<%= User.find(product.user_id).email %>
         					</p>
         					<h1><%= product.title %></h1>
         					<span class="price-new">¥ <%= product.price %></span>
