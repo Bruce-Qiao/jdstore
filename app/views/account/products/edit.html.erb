@@ -1,29 +1,29 @@
-<h2> Edit Product </h2>
+<h2> 编辑产品 </h2>
 
 <%= simple_form_for [:account, @product] do |f| %>
 
   <div class="group">
-    <%= f.input :title %>
+    <%= f.input :title, label: '名称：' %>
   </div>
 
   <div class="group">
-    <%= f.input :description %>
+    <%= f.input :description, label: '商品描述：' %>
   </div>
 
   <div class="group">
-    <%= f.input :quantity %>
+    <%= f.input :quantity, label: '商品数量：' %>
   </div>
 
   <div class="group">
-    <%= f.input :taoprice %>
+    <%= f.input :taoprice, label: '淘宝(京东)价：' %>
   </div>
 
   <div class="group">
-    <%= f.input :price %>
+    <%= f.input :price, label: '售价：', hint: '售价不能高于淘宝(京东)价的一半！' %>
   </div>
 
   <div class="group">
-    <%= f.input :sort %>
+    <%= f.input :sort, label: '商品类别：' %>
   </div>
 
   <% if @product.image.present? %>
