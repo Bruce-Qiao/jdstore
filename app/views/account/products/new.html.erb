@@ -30,6 +30,9 @@
     <%= f.input :image, label: '商品图片：', as: :file %>
   </div>
 
+  <div class="group">
+    <%= f.input :is_hidden, label: '是否隐藏：' %>
+  </div>
 
   <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
 

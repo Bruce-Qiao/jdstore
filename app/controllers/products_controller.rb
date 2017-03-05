@@ -6,21 +6,22 @@ class ProductsController < ApplicationController
 
   def index
     @products = case params[:sort]
+
                 when 'computer'
                   @sort_name = "电脑及周边商品"
-                  Product.where(:sort => "computer").order("created_at DESC")
+                  Product.where(:is_hidden => false, :sort => "computer").order("created_at DESC")
                 when 'furniture'
                   @sort_name = "家具及家居商品"
-                  Product.where(:sort => "furniture").order("created_at DESC")
+                  Product.where(:is_hidden => false, :sort => "furniture").order("created_at DESC")
                 when 'office'
                   @sort_name = "办公用品及文具"
-                  Product.where(:sort => "office").order("created_at DESC")
+                  Product.where(:is_hidden => false, :sort => "office").order("created_at DESC")
                 when 'other'
                   @sort_name = "其他商品"
-                  Product.where(:sort => "other").order("created_at DESC")
+                  Product.where(:is_hidden => false, :sort => "other").order("created_at DESC")
                 else
                   @sort_name = "所有商品"
-                  Product.all.order("created_at DESC")
+                  Product.where(:is_hidden => false).order("created_at DESC")
                 end
   end
 
