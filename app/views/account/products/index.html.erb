@@ -35,8 +35,13 @@
           <%= product.price %>
         </td>
         <td>
-          <%= link_to("Edit", edit_account_product_path(product)) %> |
-          <%= link_to("Delete", account_product_path(product), method: :delete, data: { confirm: "Are you sure?"}) %>
+          <%= link_to edit_account_product_path(product), class: "btn btn-xs btn-info" do %><i class="fa fa-pencil"></i><% end %>
+          <%= link_to account_product_path(product), :method => :delete, :class => "btn btn-xs  btn-danger", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash-o"></i><% end %>
+          <% if product.is_hidden %>
+            <%= link_to public_account_product_path(product) , :method => :post, :class => "btn btn-xs btn-success" do %><i class="fa fa-eye"></i><% end %>
+          <% else %>
+            <%= link_to hide_account_product_path(product), :method => :post,  :class => "btn btn-xs btn-warning" do %><i class="fa fa-eye-slash"></i><% end %>
+          <% end %>
         </td>
       </tr>
     <% end %>

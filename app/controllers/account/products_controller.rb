@@ -55,6 +55,19 @@ class Account::ProductsController < ApplicationController
     redirect_to account_products_path, alert: 'Product deleted!'
   end
 
+  def hide
+    @product = Product.find(params[:id])
+    @product.hide!
+
+    redirect_to :back
+  end
+
+  def public
+    @product = Product.find(params[:id])
+    @product.public!
+
+    redirect_to :back
+  end
 
   private
 

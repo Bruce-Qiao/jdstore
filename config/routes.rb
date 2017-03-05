@@ -49,7 +49,12 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :orders
-    resources :products
+    resources :products do
+      member do
+        post :hide
+        post :public
+      end
+    end
     resources :orderins do
       member do
         post :cancel
