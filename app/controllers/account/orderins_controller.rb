@@ -22,6 +22,12 @@ class Account::OrderinsController < ApplicationController
   def shipped
     @order = Order.find(params[:id])
     @order.deliver!
+    @order.product_lists.each do |product_list|
+      @product = Product.find_by_title(product_list.product_name)
+      @product.quantity -= product_list.quantity
+      @product.save
+    end
+
     redirect_to :back
   end
 
